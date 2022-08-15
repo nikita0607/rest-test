@@ -1,0 +1,15 @@
+# File for testing REST API
+# [true] - default value
+# #? - optional value
+
+name: Test 1
+
+url: "http://127.0.0.1:8000/"
+format: json  # [json]/
+method: get  # [get]/post
+data: null
+
+fullmatch: true  # true/[false]
+response:
+  result: false
+
