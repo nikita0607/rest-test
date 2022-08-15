@@ -9,10 +9,12 @@ It's a programm for testing REST API. It's so cool programm. I think that.
 
 1. Create .yaml file for one test
 ```yaml
-url: http://test.com/test
+name: testdog!
+
+url: https://dog.ceo/api/breeds/image/random
 
 response:
-  result: false
+  status: success
 ```
 (See test/test.yaml for more info.)
 

@@ -1,15 +1,18 @@
 # File for testing REST API
 # [true] - default value
-# #? - optional value
+# #! - need value
 
-name: Test 1
+name: testdog!
 
-url: "http://127.0.0.1:8000/"
+url: https://dog.ceo/api/breeds/image/random
+
+
 format: json  # [json]/
 method: get  # [get]/post
 data: null
+json_data: null
 
-fullmatch: true  # true/[false]
+fullmatch: false  # true/[false]
 response:
-  result: false
+  status: success
 
