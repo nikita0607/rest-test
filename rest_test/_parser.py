@@ -3,7 +3,8 @@ import yaml
 import os
 
 from .checkers import Checker, JSONChecker
-
+from ._results import RestError, RestPassed
+from typing import List, Union
 
 class YAMLParser:
     def __init__(self, yaml_file: str):
@@ -37,8 +38,8 @@ class YAMLParser:
             return JSONChecker(name, _url, _method,  _response, _data, 
                                _json_data, _fullmatch)
     
-    def run_checkers(self):
+    def run_checkers(self) -> List[Union[RestPassed, RestError]]:
         return asyncio.run(self._run_checkers())
 
     async def _run_checkers(self):
-        return list(map(str, await asyncio.gather(*[ch.check() for ch in self.checkers])))
+        return await asyncio.gather(*[ch.check() for ch in self.checkers])

@@ -1,8 +1,9 @@
+
 # File for testing REST API
 # [true] - default value
 # #! - need value
 
-name: Testdog passed!
+name: Testdog error!
 
 url: https://dog.ceo/api/breeds/image/random
 
@@ -14,5 +15,5 @@ json_data: null
 
 fullmatch: false  # true/[false]
 response:
-  status: success
+  status: wrong_test_status
 
