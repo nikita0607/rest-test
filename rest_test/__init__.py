@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 import sys
 import os
 import argparse
 
 from ._parser import YAMLParser
-
+from ._results import RestPassed
 
 __all__ = ["checkers", "_parser"]
 
@@ -34,8 +35,20 @@ def _run():
     yamlparser = YAMLParser(path)
 
     
-    print(*yamlparser.run_checkers(), sep="\n")
+    for res in yamlparser.run_checkers():
+        test_name = f"TestName: ---{res.checker.name}---"
+        
+        print(test_name)
+        if isinstance(res, RestPassed):
+            print("Status: PASSED")
+        else:
+            print("Status: ERROR:")
+            print(f"Expected response: {res.test_response}")
+            print(f"Server response: {res.server_response}")
+        print("_"*len(test_name))
+        print()
 
 
 if __name__ == "__main__":
     pass
+

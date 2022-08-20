@@ -7,7 +7,7 @@ from os.path import join, dirname
 
 setup(
     name='rest_test',
-    version='0.1.0',
+    version='0.1.1',
     # url='https://github.com/nikita0607/pargo',
     license='MIT',
 
